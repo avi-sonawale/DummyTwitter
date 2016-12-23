@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.avso.dummytwitter">
+
+    <!-- Getting Internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:configChanges="orientation|screenSize"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="4ac6eff245b352b9c94ea2bee12a530a4c6ae935" />
+
+        <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" />
+
+        <activity android:name=".LoginWithTwitterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".HomeActivity"
+            android:parentActivityName=".LoginWithTwitterActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginWithTwitterActivity" />
+        </activity>
+    </application>
+
+</manifest>
